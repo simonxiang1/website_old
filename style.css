@@ -1,0 +1,40 @@
+/*body {
+    max-width: 1050px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+}*/
+
+body{
+    margin:40px  auto;
+    max-width:750px;
+    line-height:1.3;
+    font-size:17px;
+    color:#454545;
+    padding:0  10px
+}
+
+h1{line-height:1.1; text-align: center}
+h2,h3{line-height:1.1}
+footer{font-size: 13px}
+
+.even, .odd {
+    min-height: 300px;
+    text-align: left
+}
+
+.even img  {
+    padding-top: 1em;
+    float: right;
+    max-width: 400px;
+    max-height: 225px;
+    padding: 20px
+}
+
+.odd img {
+    padding-top: 1em;
+    float: left;
+    max-width: 400px;
+    max-height: 225px;
+    padding: 20px
+}
