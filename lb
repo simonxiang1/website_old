@@ -2,9 +2,9 @@
 name="Simon Xiang"
 webdir="$PWD"
 website="https://simonxiang.xyz/" # Keep a trailing slash.
-css="../style.css"
-blogfile="/blog/index.html"
-indexfile="/blog/blogindex.html"
+css="/style.css"
+blogfile="/home/simon/Desktop/personal/website/blog/index.html"
+indexfile="/home/simon/Desktop/personal/website/blog/index/index.html"
 rssfile="rss.xml"
 [ -z "$EDITOR" ] && EDITOR="vim"
 
