@@ -2,11 +2,11 @@
 name="Simon Xiang"
 webdir="$PWD"
 website="https://simonxiang.xyz/" # Keep a trailing slash.
-css="/style.css"
+css="../style.css"
 blogfile="/home/simon/Desktop/personal/website/blog/index.html"
-indexfile="/home/simon/Desktop/personal/website/blog/index/index.html"
+indexfile="/home/simon/Desktop/personal/website/blogindex.html"
 rssfile="rss.xml"
-[ -z "$EDITOR" ] && EDITOR="vim"
+[ -z "$EDITOR" ] && EDITOR="nvim"
 
 [ ! -d "$webdir/blog/.drafts" ] &&
 read -erp "Initialize blog in $webdir?" ask &&
