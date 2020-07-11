@@ -18,6 +18,12 @@ h1{line-height:1.1; text-align: center}
 h2,h3{line-height:1.1}
 footer{font-size: 13px}
 
+.sub{
+    text-align: center;
+    line-height: 0.7;
+    font-size: 21
+}
+
 .even, .odd {
     min-height: 300px;
     text-align: left
