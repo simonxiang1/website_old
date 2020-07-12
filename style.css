@@ -1,23 +1,43 @@
+@import url('file:///home/simon/.cache/wal/colors.css');
+
+/*
+    color:#454545;
+    a{color:#07a}
+    a:visited{color:#7147cc}
+    border-left: 10px solid darkslategray;
+    background-color: #eee;
+ */
 body{
     margin:40px  auto;
-    max-width:750px;
-    line-height:1.3;
+    max-width:750px; line-height:1.3;
     font-size:17px;
-    color:#454545;
+    color: var(--foreground);
+    background-color: var(--background);
     padding:0  10px
 }
 
 h1{line-height:1.1; text-align: center}
 h2,h3{line-height:1.1}
 footer{font-size: 13px}
-a{color:#07a}
-a:visited{color:#7147cc}
+a{color: var(--color1)}
+a:visited{color: var(--color4)}
 
 .sub{
     text-align: center;
     line-height: 0.7;
     font-size: 21px;
 }
+
+
+.entry{
+    border-left: 10px;
+    border-left-color: var(--color6);
+    padding: 0px 10px 0px 10px;
+    border-radius: 0 30px 30px 0;
+    margin-bottom: 10px;
+}
+
+.entry h2 { margin: 5px auto 2px auto; }
 
 .even, .odd {
     min-height: 300px;
