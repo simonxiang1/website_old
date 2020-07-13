@@ -1,0 +1,73 @@
+## Setup
+OS: Arch Linux
+
+Shell: zsh
+
+Window Manager: dwm
+
+Terminal emulator: st
+
+Color scheme: pywal
+
+Editor: neovim
+
+Music player: ncmpcpp
+
+Email: neomutt
+
+Browser: Firefox (considering surf)
+
+Video player: mpv
+
+Image viewer: feh (considering sxiv)
+
+File browser: nnn
+
+Wallpaper: xwallpaper
+
+Composite manager: compton
+
+PDF Viewer: zathura
+
+Input method (Japanese): Fcitx + mozc
+
+Notification manager: dunst (not used as of now)
+
+
+Welcome to my main setup repository. Will add images and demos once everything's setup (gonna be a while).
+
+## Modifications made
+- Heavily patched dwm and st (see respective repositories), lots of extra features including but not limited to volume and music control bindings, vim scrolling, opacity, dynamic font and gaps, and url support 
+- Pywal works with zathura, firefox
+- Zsh has a pretty command line, syntax highlighting, and command completion
+- Many useful aliases and functions in .zshrc
+- Configured dotfiles for all programs listed above
+- Easy git verification with ssh-agent and committing with some scripts
+
+## How does one store dotfiles on github?
+Soo, there are some issues with making a repo to host your dotfiles remotely, due to the fact that they're stored in your home directory. Let's list some possible solutions:
+
+### Approach 1: Make your entire home directory a git repository
+...which causes many recursive issues with sub repositories, since most of your git repositories are probably stores within your home directory, which is now its own git repository. This leads to mass confusion and terror, and is generally considered bad practice.
+
+### Approach 2: Symlink everything
+The idea is to make a separate directory to store your actual dotfiles, and symlink everything in your home directory there. A viable approach, but then you have to keep track of which programs require what dotfiles where, and is generally a humongous hassle. People have written scripts for this, but it's not guaranteed to work with every program, stuff could break, and it makes your brain spin. Let's try to avoid headaches.
+
+### Approach 3: Symlink to dotfiles and add the symlinks
+Flat out doesn't work, git will only display the file path of the symlink as opposed to the contents
+
+### Approach 4: Make a copy of all your dotfiles and update them manually/with a script
+Probably is as complicated as it sounds, has the same problems as symlinking to dotfiles in home directory without the "breaking stuff" possibility
+
+### Approach 5: Bare git repo
+Pros:
+- Easy to manage 
+- No symlinking or moving files around
+- Doesn't have any recursive issues/permission issues with programs
+- Keep every dotfile right where it is and manage everything from the comfort of a different directory
+
+Cons:
+- have to type an alias instead of git to do stuff (see zshrc)
+- If you want a readme, it's going to have to be in the home directory, which means having "README.md" show up every time you ls ~/, which is nasty.
+
+So, to minimize losses, here we are. My dotfiles are over at https://github.com/simonxiang1/dotfiles, stored in a bare git repository, and the README is here, in the main setup directory, as opposed to the home directory.
