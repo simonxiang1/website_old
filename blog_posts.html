@@ -27,11 +27,11 @@ In essence, how the RSA algorithm works is by multiplying two very large prime n
 What we're concerned with, as mathematicians, is the <b>validity</b> of the algorithm. We want to know, given <b><em>any</em></b> message, will the recipient <b><em>always</em></b> be able to decrypt the encrypted message with their private key and get the right message? Let's get right into the math— all you'll need to be familiar with is some basic number theory.
 </p>
 
-<p><b><u>Definition:</u></b> Let $n$ be the product of two prime numbers $p$ and $q$ respectively, and $s$ be an integer relatively prime to $(p-1)(q-1)$. Let $p, q,$ and $s$ be part of the <em><b>private key</b></em>, and let $n$ and $r$ be part of the <em><b>public key</b></em>, where $r$ is the multiplicative inverse of $s$ mod $(p-1)(q-1)$. That is, $rs \equiv 1$ mod $(p-1)(q-1)$.  
+<p><b><u>Definition:</u></b> Let $n$ be the product of two prime numbers $p$ and $q$ respectively, and $s$ be an integer relatively prime to $(p-1)(q-1)$. Let $p, q,$ and $s$ be part of the <em><b>private key</b></em>, and let $n$ and $r$ be part of the <em><b>public key</b></em>, where $r$ is the <em>multiplicative inverse</em> of $s$ mod $(p-1)(q-1)$. That is, $rs \equiv 1$ mod $(p-1)(q-1)$.  
 </p>
 
 <p>
-The definitions may seem a little strange and arbitrary— no worries! Everything will fall into place over time. For now our goal is to show that, using the public and private keys, the sender and recipient can successfully complete an encryption/decryption exchange. Let's define those real quick: in this case, let $m$ be the message being encrypted (Note that $m$ is an integer— there are several ways to encode messages as integers that we will not cover here for the sake of brevity).       
+The definitions may seem a little strange and arbitrary— no worries! Everything will fall into place over time. For now, our goal is to show that, using the public and private keys, the sender and recipient can <em>successfully complete an <b>encryption/decryption exchange</b></em>. Let's define what that is real quick: in this case, let $m$ be the message being encrypted (Note that $m$ is an integer— there are several ways to encode messages as integers that we will not cover here for the sake of brevity).       
 </p>
 
 <p><b>Encryption:</b> Let $e$ equal the encrypted message, which is determined by 
@@ -42,11 +42,15 @@ This is simple since $n$ and $r$ are known, and a computer can easily perform mo
 </p>
 
 <p>
-<b>Decryption:</b> After receiving the encrypted message $e$, we decrypt it by taking 
+<b>Decryption:</b> After receiving the encrypted message $e$, we decrypt it by computing 
 \[
 e^s \equiv (m^r)^s \equiv m^{rs} \equiv m \, (\text{mod} \, n).
 \]
-Note that in this case, we're dealing with a form of <em><b>asymmetric encryption</b></em>, since anyone with the public key can encrypt a message but only the owner of the private key can decrypt it. Everything makes sense up until the last implication. How does $m^{rs} \equiv m \, (\text{mod} \, n)$? We need a lemma.
+We can do this because $s$ is part of the <em><b>private key</b></em>. Note that in this case, we're dealing with a form of <em><b>asymmetric encryption</b></em>, since <b>anyone with the public key</b> can encrypt a message but <b>only the owner of the private key</b> can decrypt it. Everything makes sense up until the last implication. How does $m^{rs} \equiv m \, (\text{mod} \, n)$?
+</p>
+
+<p>
+We need a lemma.
 </p>
 
 <p><b><u>Lemma:</u></b> Let $n = pq$, where $p$ and $q$ are two distinct primes. If $a$ is an integer relatively prime to $n$ and $w$ is an integer such that $w=1$ mod $(p-1)(q-1)$, then 
@@ -58,17 +62,17 @@ a^w \equiv a \, (\text{mod} \, n).
 </p>
 
 <p>
-Just kidding. This lemma is built off a powerful theorem, who's proof relies heavily on group theory. Since this post is getting long, I'll prove it in the next post, as well as give some intuition as to why we chose the oddly specific number $(p-1)(q-1)$ for $s$ to be relatively prime to. Now that we have this theorem, the equivalence 
+Just kidding. This lemma is built off a powerful theorem, whose proof relies heavily on group theory. Since this post is getting rather long, I'll prove it in the next post, as well as shed some light on the intuition behind choosing the oddly specific number $(p-1)(q-1)$ for $s$ to be relatively prime to. Now that we have this lemma, the equivalence 
 \[
 m^{rs} \equiv m \, (\text{mod} \, n) 
 \]
-follows from the fact that we defined $r$ to be the multiplicative inverse of $s$ (so $rs \equiv 1$ mod $(p-1)(q-1)$), and the lemma above, setting $a$ equal to $m$ and $w$ equal to $rs$. 
+follows from the fact that we defined $r$ to be the <em>multiplicative inverse </em> of $s$ (so $rs \equiv 1$ mod $(p-1)(q-1)$), and the lemma above, setting $a$ equal to $m$ and $w$ equal to $rs$. 
 </p>
 
 <p>
 And there we have it! Look out for part two, where I'll talk about digital signatures, group theory, and implementing this in real life.
 </p>
-<small>Tue, 14 Jul 2020 16:37:48 -0500</small>
+<small>Tue, 14 Jul 2020 17:05:01 -0500</small>
 </div>
 <div class='entry'>
 <h2 id='why-does-my-website-look-so-old'>Why does my website look so old?</h2>
