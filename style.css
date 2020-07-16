@@ -2,11 +2,10 @@
 
 body{
     margin:40px  auto;
-    max-width:750px; line-height:1.3;
+    max-width:700px; line-height:1.4;
     font-size:17px;
-    color: var(--color1);
-    background-color: var(--background);
-    padding:0  10px
+    color: var(--color1); background-color: var(--background);
+    padding 0 20px
 }
 
 body img{
@@ -43,7 +42,7 @@ li{list-style: none}
 .entry h2 { margin: 5px auto 2px auto; }
 
 .even, .odd {
-    min-height: 300px;
+    min-height: 275px;
     text-align: left
 }
 
