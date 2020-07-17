@@ -3,6 +3,7 @@
 <head>
 <title>Proving RSA Encryption: An Application of Group Theory (Part 1: Asymmetric Encryption)</title>
 <link rel='stylesheet' type='text/css' href='../style.css'>
+<script src="../load-mathjax.js" async></script>
 <meta charset='utf-8'/>
 </head>
 <body>
@@ -13,7 +14,7 @@ If someone receives an email from me, they might notice a peculiar "signature.as
 </p>
 
 <p>
-In essence, how the RSA algorithm works is by multiplying two very large prime numbers, known only to the recipient of the message, and making the product public (this is known as a <b><em>public key</em> </b>). The sender uses the product to encrypt a message using an algorithm that only someone with knowledge of the two prime numbers (known as the <b><em>private key</em></b>) can decrypt. We can leave the question of the computational difficulty of integer factorization, i.e., whether or not there exists an algorithm that factors large prime numbers in polynomial time, to the computer scientists (hopefully there isn't, or else a large portion of modern day encryption becomes useless). 
+In essence, how the RSA algorithm works is by multiplying two very large prime numbers, known only to the recipient of the message, and making the product public (this is known as a <b><em>public key</em></b>). The sender uses the product to encrypt a message using an algorithm that only someone with knowledge of the two prime numbers (known as the <b><em>private key</em></b>) can decrypt. We can leave the question of the computational difficulty of integer factorization, i.e., whether or not there exists an algorithm that factors large prime numbers in polynomial time, to the computer scientists (hopefully there isn't, or else a large portion of modern day encryption becomes useless). 
 </p>
 
 <p>
