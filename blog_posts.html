@@ -25,7 +25,7 @@ a^{p-1} \equiv 1 \, (\text{mod} \, p).
 \]
 Those with a background in number theory may be more familiar with this equivalent statement of the theorem: If $a \in \mathbb{Z}$, then $a^p \equiv a \, (\text{mod} \, p)$ for $p$ a prime.
 </p>
-<p><b><u>Proof:</u></b><em> I have discovered a truly remarkable proof that is too large to be containted in the margins of this post.</em> 
+<p><b><u>Proof:</u></b><em> I have discovered a truly remarkable proof that is too large to be contained in the margins of this post.</em> 
 </p>
 
 <p>
@@ -50,7 +50,7 @@ a + a' = a' + a = 0.
 </p>
 
 <p>
-The cool thing about groups is that they're very simple yet powerful: as long as <em><b>any set</b></em> paired with <em><b>any binary operation</b></em> satisfies these axioms, it forms a group, and all the theorems from group theory apply to it. It doesn't just have to be $\mathbb{R}$ with the standard addition, anything from the set of square matrices ($GL(n, \mathbb{C})$) to the set of permutations on a regular $n$-gon ($S_n$) form a group.
+The cool thing about groups is that they're very simple yet powerful: as long as <em><b>any set</b></em> paired with <em><b>any binary operation</b></em> satisfies these axioms, it forms a group, and all the theorems from group theory apply to it. It doesn't just have to be $\mathbb{R}$ with the standard addition, anything from the set of square matrices $(GL(n, \mathbb{C}))$ to the set of permutations on a regular $n$-gon $(S_n)$ form a group.
 </p>
 
 <p>
@@ -62,7 +62,7 @@ Let's prove a theorem that will come in handy later. Since this post is going to
 a^{|G|} = 1.
 \]
 </p>
-<p><b><u>Proof:</u></b> By Lagrange's Theorem, the order of the element $a$ (the smallest positive integer $k$ such that $a^k=1$) must divide $|G|$, that is, $|G|=kn$ for some $n \in \mathbb{N}$. Then 
+<p><b><u>Proof:</u></b> By <em>Lagrange's Theorem</em>, the order of the element $a$ (the smallest positive integer $k$ such that $a^k=1$) must divide $|G|$, that is, $|G|=kn$ for some $n \in \mathbb{N}$. Then 
 \[
 a^{|G|}=a^{kn}=(a^k)^n=1^n=1. \quad \boxtimes
 \]
@@ -98,7 +98,7 @@ Since we live in the ring $\mathbb{Z}_n$, multiplication is commutative and mult
 </p>
 
 <p>
-There are special rings in which <b>every non-zero element is a ring</b> called <em><b>fields</b></em>. Intuively, fields are algebraic structures in which <em>division </em> is legal, since every element is a unit and therefore will remain in the field if "divided by" (multiplied with the multiplicative inverse) of another element in the field. From the previous theorem, the wonderful fact that $\mathbb{Z}_p$ is a field for $p$ a prime follows! Notice that every non-zero element of $\mathbb{Z}_p$ is relatively prime to $p$ (gcd$(m,p)=1$ for $m \in \mathbb{Z}_p$) since $p$ is a prime number, so every non-zero element of $\mathbb{Z}_p$ is a unit, hence $\mathbb{Z}_p$ is a field.
+There are special rings in which <b>every non-zero element is a ring</b> called <em><b>fields</b></em>. Intuively, fields are algebraic structures in which <em>division </em> is legal, since every element is a unit and therefore will remain in the field if "divided by" (multiplied by the multiplicative inverse) of another element in the field. From the previous theorem, the wonderful fact that $\mathbb{Z}_p$ is a field for $p$ a prime follows! Notice that every non-zero element of $\mathbb{Z}_p$ is relatively prime to $p$ (that is, gcd$(m,p)=1$ for $m \in \mathbb{Z}_p$) since $p$ is a prime number, so every non-zero element of $\mathbb{Z}_p$ is a unit, hence $\mathbb{Z}_p$ is a field.
 </p>
 
 <p>
@@ -106,7 +106,7 @@ Algebra is all about analyzing <em>structure</em>. Like a phoenix rising from it
 </p>
 
 <p>
-We are ready to prove Fermat's Little Theorem. Before we do, note that $p$ doesn't necessarily have to be prime for the set of units in $\mathbb{Z}_p$ to from a group. However, since $p$ is prime, we know that every non-zero element is a unit, and therefore we can easily classify this group as consisting of the elements 
+<strong>We are ready to prove Fermat's Little Theorem</strong>. Before we do, note that $p$ doesn't necessarily have to be prime for the set of units in $\mathbb{Z}_p$ to from a group. However, since $p$ is prime, we know that every non-zero element is a unit, and therefore we can easily classify this group as consisting of the elements 
 \[
 \{1,2,3, ... ,p-1\}
 \]
@@ -124,7 +124,7 @@ a^{p-1} \equiv a^{|\mathbb{Z}_p^*|} \equiv 1 \, (\text{mod} \, p). \quad \boxtim
 </p>
 
 <p>
-(For the curious reader: Here is the reasoning behind why the two statements of FLT are equivalent. Every integer will correspond to a coset of the quotient ring $\mathbb{Z}/p\mathbb{Z}.$ In other words, if $b \in \mathbb{Z}$, then $b \in a+p\mathbb{Z}$ for some $0 \lt a \leq p-1$ ($a \in \mathbb{Z}/p\mathbb{Z}),$ which implies $b+p\mathbb{Z}=a+p\mathbb{Z}$ by the definition of cosets. So we can restate FLT as such: $\forall b+p\mathbb{Z}, (b+p\mathbb{Z})^{p-1} \equiv 1$ (mod $p$) $\implies \forall a+p\mathbb{Z}, (a+p\mathbb{Z})^{p-1} \equiv 1$ (mod $p$). Since $\mathbb{Z}/p\mathbb{Z}$ and $\mathbb{Z}_p$ are naturally isomorphic as rings (similarily, $\mathbb{Z}/p\mathbb{Z}^*$ and $\mathbb{Z}_p^*$ as groups), this statement is the same as $\forall a \in \mathbb{Z}_p, a^{p-1} \equiv 1$ (mod $p$). Therefore, FLT is equivalent to the alternative statement.) 
+(For the curious reader: Here is the reasoning behind why the two statements of FLT are equivalent. Every integer will correspond to a coset of the quotient ring $\mathbb{Z}/p\mathbb{Z}.$ In other words, if $b \in \mathbb{Z}$, then $b \in a+p\mathbb{Z}$ for some $0 \lt a \leq p-1$ $(a \in \mathbb{Z}/p\mathbb{Z}),$ which implies $a+p\mathbb{Z}=b+p\mathbb{Z}$ by the definition of cosets. So we can restate FLT as such: $\forall b+p\mathbb{Z}, (b+p\mathbb{Z})^{p-1} \equiv 1$ (mod $p$) which implies $\forall a+p\mathbb{Z}, (a+p\mathbb{Z})^{p-1} \equiv 1$ (mod $p$). Since $\mathbb{Z}/p\mathbb{Z}$ and $\mathbb{Z}_p$ are naturally isomorphic as rings (similarily, $\mathbb{Z}/p\mathbb{Z}^*$ and $\mathbb{Z}_p^*$ as groups), this statement is the same as $\forall a \in \mathbb{Z}_p, a^{p-1} \equiv 1$ (mod $p$). Therefore, FLT is equivalent to the alternate statement.) 
 </p>
 
 <p>
