@@ -11,6 +11,26 @@
 <!-- LB -->
 
 <item>
+<title>Regrettably, This Site Runs Javascript</title>
+<guid>https://simonxiang.xyz/blog_posts.html#regrettably-this-site-runs-javascript</guid>
+<pubDate>Sat, 18 Jul 2020 17:21:49 -0500</pubDate>
+<description><![CDATA[
+<p>
+I'm really sad. I had a vision for a completely bloat-free website, but now I'm being plagued by the blight that is Javascript because I wanted pretty equations. Every single time someone loads my rolling blog page, it sends 40 something calls to the external MathJax server to generate the LaTeX equations, slowing down the load time by one or two seconds. Unacceptable! I want my stuff to load instantly all the time.
+</p>
+
+<p>
+I've tried to host an instance of MathJax on my server before, but that means installing a bunch of bloat like Node.js on the server end. Plus, I'm not even sure it'll improve response times by that much. Image based solutions look absolutely horrible. Is there any clean solution to writing pretty equations in HTML? If anybody knows of one, please let a poor and struggling mathematician know.
+</p>
+
+<p>
+Edit: An additional grievance: <code>\overbrace</code> and <code>\underbrace</code> will break MathJax. It doesn't even compile the rest of your document if you have one of these bad boys in your code! Someone please save me.
+</p>
+]]></description>
+</item>
+
+
+<item>
 <title>Proving RSA Encryption: An Application of Group Theory (Part 3: Digital Signatures and Euler's Totient Function)</title>
 <guid>https://simonxiang.xyz/blog_posts.html#proving-rsa-encryption-an-application-of-group-theory-part-3-digital-signatures-and-eulers-totient-function</guid>
 <pubDate>Fri, 17 Jul 2020 18:51:10 -0500</pubDate>
