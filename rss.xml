@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/css" href="rss.css" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>Simon's Blog</title>
+<description>The ramblings of a mathematician. LaTeX equations will probably turn into jumbo without MathJax, so I suggest you view my posts online. But if you must, here is an RSS feed.</description> <language>en-us</language>
+<link>http://simonxiang.xyz/rss.xml</link>
+<atom:link href="http://simonxiang.xyz/rss.xml" rel="self" type="application/rss+xml" />
+
+<!-- LB -->
+
+<item>
+<title>Proving RSA Encryption: An Application of Group Theory (Part 3: Digital Signatures and Euler's Totient Function)</title>
+<guid>https://simonxiang.xyz/blog_posts.html#proving-rsa-encryption-an-application-of-group-theory-part-3-digital-signatures-and-eulers-totient-function</guid>
+<pubDate>Fri, 17 Jul 2020 18:51:10 -0500</pubDate>
+<description><![CDATA[
+<p>
+We've finally proved Fermat's Little Theorem and explained some of the machinery behind groups and rings. Let's continue by defining an important function.
+</p>
+<p><b><u>Definition</u></b><em> (Euler's Totient Function):</em> Let $\varphi: \mathbb{Z}^+ \to \mathbb{Z}^+$ be defined as $\varphi(n) = $ the number of integers less than or equal to $n$ that are relatively prime to $n$ for $n \in \mathbb{Z}^+. \varphi$ is also known as the <b>Euler phi-function</b>.
+</p>
+
+<p>
+As you can see, it can be quite hard to procure a general formula for $\varphi(n)$ for all $n$. However, in some cases it is relatively easy— for example, if $n$ is prime, then $\varphi(n)$ is simply $n-1.$ Recall from the last post that the Euler phi-function simply defines the <em>order</em> of the multiplicative group of units $\mathbb{Z}_n^*.$ We now state an important theorem:
+</p>
+<p><b><u>Theorem</u></b><em> (Euler's Theorem):</em> Let $a \in \mathbb{Z}$ be relatively prime to $n,$ that is, $\text{gcd}(a,n)=1.$ Then 
+\[
+a^{\varphi(n)} \equiv 1 \, (\text{mod} \, n),
+\]
+where $\varphi$ denotes the <em><b>Euler phi-function,</b></em> and $n \in \mathbb{Z}^+.$
+</p>
+<p><b><u>Proof:</u></b> Euler's Theorem is equivalent to the following statement: For all $a \in \mathbb{Z}_n^*$, $a^{\varphi(n)} \equiv 1$ (mod $n$). We know from a previous theorem that any element of a finite group raised to the power of the order of the group is $1.$ Since $|\mathbb{Z}_n^*|=\varphi(n)$, we have 
+\[
+a^{\varphi(n)} \equiv a^{|\mathbb{Z}_n^*|} \equiv 1 \, (\text{mod} \, n). \quad \boxtimes
+\]
+</p>
+
+<p>
+Notice that the reasoning behind the proof is almost the exact same as the proof of Fermat's Little Theorem: <b>Indeed, Euler's Theorem is simply a <em>generalization</em> of Fermat's Little Theorem—</b> Fermat's Little Theorem simply describes the case where $n$ is prime.
+</p>
+<p>
+Let's calculate $\varphi(n)$ for $n=pq$, where $p$ and $q$ are two prime numbers. We want to find the number of integers less than or equal to $n$ that are relatively prime to $n$. First, note that the number of integers less than or equal to $n$ is $n-1,$ or $pq-1$. We want to subtract the number of integers that have a multiple in common with $n.$ This is what we have so far: 
+\[
+\varphi(n) = (pq - 1) - ? - ?
+\]
+ Since $n$ is composed of two prime numbers, this would entail the multiples of $p$ and $q$ (due to the unique factorization of $n$). There are $p-1$ multiples of $q$ and $q-1$ multiples of $p$ that are less than or equal to $n$. This makes sense if you think about $n$ this way. Without loss of generality,
+ \[
+ n = pq = q + \cdots + q
+ \]
+ $p$ times. Then the distinct numbers
+ \begin{align}
+     &1:q \\
+     &2:q + q \\
+     &3:q + q + q \\
+     & \vdots \\
+     &p:q + q + \cdots + q 
+ \end{align}
+ are all multiples of $q$. Our goal is find the <em>number</em> of factors of $q$: notice that the set $\{1, 2, 3, \cdots p \}$ has $p-1$ elements. A similar argument holds for the factors of $p$. So, there are $p-1$ multiples of $q$ and $q-1$ multiples of $p$ that are less than or equal to $n$. We have some more information on how $\varphi(n)$ looks now...
+ \begin{align}
+     \varphi(n) &= (pq - 1) - (p - 1) - (q - 1) \\ 
+                &= pq - p - q + 1 \\ 
+                &= p(q-1)-(q-1) \\ 
+                &= (p-1)(q-1).
+ \end{align}
+...Oh yeah, it's all coming together. 
+</p>
+
+<p>
+Now we finally understand the reasoning behind choosing the seemingly arbitary number $(p-1)(q-1)$: it's the <em><b>order of the multiplicative group of integers mod $pq$</b></em>, which means <em><b>any element of $\mathbb{Z}_{pq}$ will reduce to 1 modulo $(p-1)(q-1)$ by Euler's Theorem.</b></em> Let us finally prove that pesky lemma from the first post.
+</p>
+<p><b><u>Lemma:</u></b> Let $n=pq$, where $p$ and $q$ are two distinct primes. If $a$ is an integer relatively prime to $n$ and $w$ is an integer such that $w \equiv 1 \pmod{(p-1)(q-1)}$, then 
+\[
+a^w \equiv a\pmod{n} .
+\]
+</p>
+<p><b><u>Proof:</u></b> Since $w \equiv 1 \pmod{(p-1)(q-1)}, w = k(p-1)(q-1)+1$ for some $k \in \mathbb{Z}$. So
+\begin{align}
+    a^w &= a^{k(p-1)(q-1)+1} \\
+        &= a^{(p-1)(q-1)^k}a \\
+        &= a(a^{\varphi(n)})^k \\ 
+        &\equiv a(1)^k \ \small{\text{by Euler's Theorem}} \\
+        &= a \pmod{n}.
+\end{align}
+</p>
+
+<p>
+With that, we've finally finished the theory behind RSA Encryption. Let's end this series with a real-world application, follow along on your Linux machines everyone! (Disclaimer: This should work on any machine with GPG installed).
+</p>
+
+<p>
+We can use RSA Encryption to digitally sign messages, that is, generate a signature that anybody with my public key can decrypt, but only I can encrypt. Go ahead and <a href="https://gnupg.org/download" target="_blank">grab yourself of a copy of GnuPG</a>, the program we're going to use to create keys and verify signatures. If you're on Linux, just run 
+
+<pre>
+<code>sudo pacman -S gnupg</code>
+</pre>
+
+or some variant (if you're using Linux, I hope you know how to install packages).
+</p>
+
+<p>
+We'll use the same notation as the original post, refer back to it if you need to. Go ahead and download <a href="https://simonxiang.xyz/examples/hello_world.txt">the message we're going to be verifiying</a> and <a href="https://simonxiang.xyz/examples/hello_world.sig">the digital signature generated by RSA Encryption.</a> 
+</p>
+
+<p>
+The algorithm starts by encoding $m$ (hello_world.txt) as an integer. We generate the digital signature by using my <em><b>private key</b></em> and letting the singature equal 
+\[
+m^s \pmod n.
+\]
+The resultant signature is encoded in the file hello_world.sig above. 
+</p>
+
+<p>
+If you want to generate a GPG key pair and sign a file of your own, go ahead and open your terminal emulator (Powershell for Windows) and run 
+<pre>
+<code>gpg --gen-key</code>
+</pre>
+and follow the instructions. To generate the digital signature for a file, run 
+<pre>
+<code>gpg --output file.sig --detach-sig file</code>
+</pre>
+and replace <code>file.sig</code> with whatever name you want your signature file to be, and <code>file</code> with the file you want to sign. 
+</p>
+
+<p>
+Now since I used my <em><b>private key</b></em> to sign this file, you'll need my <em><b>public key</b></em> to verify the signature. How this works is by raising the signature to the power of $r$ (which is in the public key) to yield 
+\[
+m^{s^r} \equiv m^{(rs)} \equiv m \pmod n
+\]
+by our lemma. Isn't that neat? Basically, it compares both the message $m$ and the signature raised to the power of $r$ (denoted $m^{s^r}$) and checks if the two match— if they do then great, if they don't, then the signature has been compromised/the message has been tampered with since it was sent, and should not be trusted.
+</p>
+
+<p>
+To follow along on your own machine, <code>cd</code> to the directory you downloaded the files in and run
+<pre>
+<code>gpg --verify hello_world.sig hello_world.txt</code>
+</pre>
+And that's a wrap! If you want to send me encrypted emails, <a href="https://simonxiang.xyz/example/simonspublickey.gpg">here's my public key.</a> Together, we can use the power of math and encryption to protect our content from the peering eyes of the NSA!
+</p>
+]]></description>
+</item>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<item>
+<title>Topological Continuity: Simplicity in Abstraction</title>
+<guid>https://simonxiang.xyz/blog_posts.html#topological-continuity-simplicity-in-abstraction</guid>
+<pubDate>Sat, 11 Jul 2020 14:05:15 -0500</pubDate>
+<description><![CDATA[
+<p>Abstraction is often looked down upon by engineers and physicists as something mathematicians do to make life harder for themselves, obfuscate simple things, and make math less applicable in real life.</p> 
+<p>However, the opposite is actually true— restricting your viewpoint to one set or space (say, \( \mathbb{R}^n \)) makes things much more complicated than they have to be. <strong>Beauty and simplicity lie in levels of abstraction.</strong> Let's take a look at an example, some prerequisites include basic knowledge of metric spaces and topological spaces. </p>
+
+<p>Here's the standard rigorous definition of continuity from Real Analysis. We say \( f: \mathbb{R} \to \mathbb{R} \) is <b>continuous</b> at \( x_0 \in \mathbb{R} \) if for all \( \epsilon > 0 \), there exists a \( \delta > 0 \) such that 
+
+<p>
+\[ 
+    |x - x_0| < \delta \implies |f(x)-f(x_0)| < \epsilon 
+\]
+</p>
+
+for all \( x \in \mathbb{R} \). Of course the domain doesn't have to be \( \mathbb{R} \), it can be any interval, say \( A \). When a function is continuous for all \( x_0 \in A \), it's <em>continuous on</em> \( A \). If a function is continuous on its domain, we just say it's <em>continuous</em>.
+</p>
+
+<p> That probably triggered some flashbacks for some poor Calculus students learning about limits for the first time (I too, feared the epsilon-delta dynamic duo up until I took Analysis). It doesn't have to be this scary! Forget the strange Greek letters, let's make this definition more powerful and simple at the same time.</p>
+
+<p> Observe that the absolute value signs are just measuring the <em>distance</em> between two points in $\mathbb{R}$, indeed, this seems like a job more suited for <b>metric spaces</b>. Let $\mathbb{R}$ be equipped with the standard metric $d$ such that $d: \mathbb{R} \times \mathbb{R} \to \mathbb{R}, \, d(x,y) = |x-y|$. You can easily check that $d$ satisfies the conditions for a metric, so $(\mathbb{R},d)$ is a metric space. Now let's rewrite our previous definition in metric terms: \(f: \mathbb{R} \to \mathbb{R} \) is continuous at \( x_0 \in \mathbb{R} \) if for all \( \epsilon > 0 \), there exists a \( \delta > 0 \) such that 
+
+\[
+    d(x, x_0) < \delta \implies d(f(x),f(x_0)) < \epsilon.
+\]
+
+<p>Recall the definition of an <em>open ball</em> in a metric space. Let $(X,d)$ be a metric space, $x_0 \in X, \gamma \gt 0$. Then we define an <u>open ball</u> as 
+\[ B(x_0, \gamma) = \{ x \in X \mid d(x,x_0) < \gamma \}. \]
+Intuitively, it's the set of all points a certain distance <em>gamma</em> away from another point $x_0$. Notice that the two expressions in the definition just refer to points $(x \in \mathbb{R})$ a certain positive distance $(\epsilon, \delta)$ away from another point $(x_0)$, hmmm...
+\[
+    d(x, x_0) < \delta \implies d(f(x),f(x_0)) < \epsilon
+\]
+implies that 
+\[
+    x \in B(x_0, \delta) \implies f(x) \in B(f(x_0), \epsilon)
+\]
+which subsequently implies
+\[
+    f\left[B(x_0, \delta) \right] \subset B(f(x_0),\epsilon).
+\]
+The last implication may seem somewhat arcane, but just look closer and you'll see it quickly follows from the definition of the image of a set under a function. But wait! We haven't even seen the final form of continuity yet! Recall that every metric space generates a topology, and that the metric topology is generated by defining open balls as open sets... Now we're ready to define the final layer of abstraction, topological continuity. 
+</p>
+
+<p><b><u>Definition:</u></b> Let $(X, \tau_x )$ and $(Y, \tau_y )$ be <em>topological spaces</em>. Then a function $f: X \to Y$ is <b>continuous</b> if for all open sets $H \in \tau_y, \, f^{-1}(H) \in \tau_x.$
+</p>
+
+<p>The moment of truth: we transformed a convoluted epsilon delta definition into a simple, elegant, and much more widely applicable statement: <em>"A function is <b>continuous</b> if the pre-image of an open set is open."</em> Not only is this statement much simpler, it also applies to all sorts of spaces— the set of binary sequences, a really long line, co-finite sets, anything. Isn't that great?
+</p>
+]]></description>
+</item>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</channel>
+</rss>
