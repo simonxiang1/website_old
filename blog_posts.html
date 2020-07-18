@@ -62,7 +62,7 @@ Let's calculate $\varphi(n)$ for $n=pq$, where $p$ and $q$ are two prime numbers
 \[
 \varphi(n) = (pq - 1) - ? - ?
 \]
- Since $n$ is composed of two prime numbers, this would entail the multiples of $p$ and $q$ (due to the unique factorization of $n$). There are $p-1$ multiples of $q$ and $q-1$ multiples of $p$ that are less than or equal to $n$. This makes sense if you think about $n$ this way. Without loss of generality,
+ Since $n$ is composed of two prime numbers, this would entail the multiples of $p$ and $q$ (due to the unique factorization of $n$) that are less than $n$, since $n=pq$ is already accounted for. There are $p-1$ multiples of $q$ and $q-1$ multiples of $p$ that are less than or equal to $n$. This makes sense if you think about $n$ this way. Without loss of generality,
  \[
  n = pq = q + \cdots + q
  \]
@@ -72,9 +72,9 @@ Let's calculate $\varphi(n)$ for $n=pq$, where $p$ and $q$ are two prime numbers
      &2:q + q \\
      &3:q + q + q \\
      & \vdots \\
-     &p:q + q + \cdots + q 
+     &p-1:q + q + \cdots + q 
  \end{align}
- are all multiples of $q$. Our goal is find the <em>number</em> of factors of $q$: notice that the set $\{1, 2, 3, \cdots p \}$ has $p-1$ elements. A similar argument holds for the factors of $p$. So, there are $p-1$ multiples of $q$ and $q-1$ multiples of $p$ that are less than or equal to $n$. We have some more information on how $\varphi(n)$ looks now...
+ are all multiples of $q$ that are less than $n$, hence why we stopped at the term $p-1$. Our goal is find the <em>number</em> of factors of $q$: then there must be $p-1$ factors since the set the set $\{1, 2, 3, \cdots p-1 \}$ has $p-1$ elements. A similar argument holds for the factors of $p$. We have some more information on how $\varphi(n)$ looks now...
  \begin{align}
      \varphi(n) &= (pq - 1) - (p - 1) - (q - 1) \\ 
                 &= pq - p - q + 1 \\ 
@@ -85,20 +85,20 @@ Let's calculate $\varphi(n)$ for $n=pq$, where $p$ and $q$ are two prime numbers
 </p>
 
 <p>
-Now we finally understand the reasoning behind choosing the seemingly arbitary number $(p-1)(q-1)$: it's the <em><b>order of the multiplicative group of integers mod $pq$</b></em>, which means <em><b>any element of $\mathbb{Z}_{pq}$ will reduce to 1 modulo $(p-1)(q-1)$ by Euler's Theorem.</b></em> Let us finally prove that pesky lemma from the first post.
+Now we finally understand the reasoning behind choosing the seemingly arbitary number $(p-1)(q-1)$: it's the <em><b>order of the multiplicative group of integers mod $pq$</b></em>, which means <em><b>any element of $\mathbb{Z}_{pq}$ will reduce to 1 if raised to the power of $(p-1)(q-1)$ modulo $(p-1)(q-1)$ by Euler's Theorem.</b></em> Let us finally prove that pesky lemma from the first post.
 </p>
-<p><b><u>Lemma:</u></b> Let $n=pq$, where $p$ and $q$ are two distinct primes. If $a$ is an integer relatively prime to $n$ and $w$ is an integer such that $w \equiv 1 \pmod{(p-1)(q-1)}$, then 
+<p><b><u>Lemma:</u></b> Let $n=pq$, where $p$ and $q$ are two distinct primes. If $a$ is an integer relatively prime to $n$ and $w$ is an integer such that $w \equiv 1 \, \text{mod} \, (p-1)(q-1)$, then 
 \[
-a^w \equiv a\pmod{n} .
+a^w \equiv a \, (\text{mod} \,n).
 \]
 </p>
-<p><b><u>Proof:</u></b> Since $w \equiv 1 \pmod{(p-1)(q-1)}, w = k(p-1)(q-1)+1$ for some $k \in \mathbb{Z}$. So
+<p><b><u>Proof:</u></b> Since $w \equiv 1 \, \text{mod} \,(p-1)(q-1), w = k(p-1)(q-1)+1$ for some $k \in \mathbb{Z}$. So
 \begin{align}
     a^w &= a^{k(p-1)(q-1)+1} \\
         &= a^{(p-1)(q-1)^k}a \\
         &= a(a^{\varphi(n)})^k \\ 
         &\equiv a(1)^k \ \small{\text{by Euler's Theorem}} \\
-        &= a \pmod{n}.
+        &= a \, (\text{mod} \, n).
 \end{align}
 </p>
 
@@ -123,7 +123,7 @@ We'll use the same notation as the original post, refer back to it if you need t
 <p>
 The algorithm starts by encoding $m$ (hello_world.txt) as an integer. We generate the digital signature by using my <em><b>private key</b></em> and letting the singature equal 
 \[
-m^s \pmod n.
+m^s \, (\text{mod} \, n).
 \]
 The resultant signature is encoded in the file hello_world.sig above. 
 </p>
@@ -143,7 +143,7 @@ and replace <code>file.sig</code> with whatever name you want your signature fil
 <p>
 Now since I used my <em><b>private key</b></em> to sign this file, you'll need my <em><b>public key</b></em> to verify the signature. How this works is by raising the signature to the power of $r$ (which is in the public key) to yield 
 \[
-m^{s^r} \equiv m^{(rs)} \equiv m \pmod n
+m^{s^r} \equiv m^{(rs)} \equiv m \, (\text{mod} \, n)
 \]
 by our lemma. Isn't that neat? Basically, it compares both the message $m$ and the signature raised to the power of $r$ (denoted $m^{s^r}$) and checks if the two match— if they do then great, if they don't, then the signature has been compromised/the message has been tampered with since it was sent, and should not be trusted.
 </p>
