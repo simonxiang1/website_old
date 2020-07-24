@@ -11,6 +11,78 @@
 <!-- LB -->
 
 <item>
+<title>Linear Algebra and Its Applications, Part 1: An Introduction</title>
+<guid>https://simonxiang.xyz/blog_posts.html#linear-algebra-and-its-applications-part-1-an-introduction</guid>
+<pubDate>Thu, 23 Jul 2020 22:04:17 -0500</pubDate>
+<description><![CDATA[
+<p>
+Yes, the title refers to that one horrid textbook that everybody uses. I hope that reading the title brought back some fond memories of your first Linear Algebra course!
+</p>
+
+<p>
+Welcome to my new series on the many applications of Linear Algebra! I'm not exactly sure which applications I'll cover or how many just yet, but for now I'll just go with the flow. I'm also not much of an applied mathematician, so I'll probably end up writing about the applications of Linear Algebra in other fields of math or something like that. 
+</p>
+
+<p>
+Linear Algebra pops up seemingly everywhere— if we rephrase "systems of linear equations" as "many equations that seem somewhat straight if you zoom in", it becomes clear why. Here's an inspirational quote:
+</p>
+
+<blockquote>
+<p>
+"Mathematics is about turning difficult problems into Linear Algebra problems."
+</p>
+<cite style="font-style: normal; font-size: 17px">–Terence Tao</cite>
+</blockquote>
+<p>
+Actually, it probably wasn't Terence Tao who said that. I probably got the quote wrong too. Anywho, you get the point. 
+</p>
+
+<p>
+Matrix equations will show up all the time if you work in a STEM field, and about half of modern mathematics is built on the theory of vector spaces. It's a fundamental topic everywhere (and should be taught in high schools!) that deserves some special treatment, and so, the birth of this series. Look forward to my first post on image compression with Singular Value Decomposition!
+</p>
+]]></description>
+</item>
+
+
+
+
+
+
+
+
+
+
+<item>
+<title>Options +Indexes
+Proving RSA Encryption: An Application of Group Theory
+I'm Never Going to Finish Reading Infinite Jest
+Why does my website look so old?
+Proving RSA Encryption: An Application of Group Theory (Part 2: Fermat's Little Theorem and Ring Theory)
+Topological Continuity: Simplicity in Abstraction
+Proving RSA Encryption: An Application of Group Theory (Part 3: Digital Signatures and Euler's Totient Function)
+Regrettably, This Site Runs Javascript
+Digital Privacy is Like the Blinds on Your Windows
+How to Contact Me
+Searx is a Completely Private Search Engine</title>
+<guid>https://simonxiang.xyz/blog_posts.html#</guid>
+<pubDate>Options +IndexesAddDescription "Proving RSA Encryption: An Application of Group TheorySun, 12 Jul 2020 15:13:19 -0500Fri, 17 Jul 2020 16:19:29 -0500Sat, 11 Jul 2020 14:05:15 -0500Fri, 17 Jul 2020 18:51:10 -0500Sat, 18 Jul 2020 17:21:49 -0500Sun, 19 Jul 2020 14:19:23 -0500Mon, 20 Jul 2020 22:14:09 -0500Thu, 23 Jul 2020 21:27:36 -0500</pubDate>
+<description><![CDATA[
+
+]]></description>
+</item>
+
+
+
+
+
+
+
+
+
+
+
+
+<item>
 <title>How to Contact Me</title>
 <guid>https://simonxiang.xyz/blog_posts.html#how-to-contact-me</guid>
 <pubDate>Mon, 20 Jul 2020 22:14:09 -0500</pubDate>
