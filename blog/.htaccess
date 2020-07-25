@@ -1,6 +1,5 @@
 Options +Indexes
 AddDescription "Proving RSA Encryption: An Application of Group Theory
-AddDescription "I'm Never Going to Finish Reading Infinite Jest" "im-never-going-to-finish-reading-infinite-jest.html"
 AddDescription "Why does my website look so old?" "why-does-my-website-look-so-old.html" #Sun, 12 Jul 2020 15:13:19 -0500
 AddDescription "Proving RSA Encryption: An Application of Group Theory (Part 2: Fermat's Little Theorem and Ring Theory)" "proving-rsa-encryption-an-application-of-group-theory-part-2-fermats-little-theorem-and-ring-theory.html" #Fri, 17 Jul 2020 16:19:29 -0500
 AddDescription "Topological Continuity: Simplicity in Abstraction" "topological-continuity-simplicity-in-abstraction.html" #Sat, 11 Jul 2020 14:05:15 -0500
@@ -21,3 +20,4 @@ Digital Privacy is Like the Blinds on Your Windows
 How to Contact Me
 Searx is a Completely Private Search Engine" "" #Options +IndexesAddDescription "Proving RSA Encryption: An Application of Group TheorySun, 12 Jul 2020 15:13:19 -0500Fri, 17 Jul 2020 16:19:29 -0500Sat, 11 Jul 2020 14:05:15 -0500Fri, 17 Jul 2020 18:51:10 -0500Sat, 18 Jul 2020 17:21:49 -0500Sun, 19 Jul 2020 14:19:23 -0500Mon, 20 Jul 2020 22:14:09 -0500Thu, 23 Jul 2020 21:27:36 -0500
 AddDescription "Linear Algebra and Its Applications, Part 1: An Introduction" "linear-algebra-and-its-applications-part-1-an-introduction.html" #Thu, 23 Jul 2020 22:04:17 -0500
+AddDescription "I'm Never Going to Finish Reading Infinite Jest" "im-never-going-to-finish-reading-infinite-jest.html" #Fri, 24 Jul 2020 22:25:32 -0500
