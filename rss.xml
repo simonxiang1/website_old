@@ -10,9 +10,17 @@
 
 <!-- LB -->
 
+
+
+
+
+
+
+
+
 <item>
 <title>Want to Subscribe? Use RSS!</title>
-<guid>https://simonxiang.xyz/blog_posts.html#want-to-subscribe-use-rss</guid>
+<guid>https://simonxiang.xyz/blog/want-to-subscribe-use-rss</guid>
 <pubDate>Sat, 25 Jul 2020 23:19:16 -0500</pubDate>
 <description><![CDATA[
 <h2 style="text-align: center"><a href="https://simonxiang.xyz/rss.xml">My RSS Feed</a></h2>
@@ -63,7 +71,7 @@ Of course, if you're not a fan of terminal based applications, there are graphic
 
 <item>
 <title>I'm Never Going to Finish Reading Infinite Jest</title>
-<guid>https://simonxiang.xyz/blog_posts.html#im-never-going-to-finish-reading-infinite-jest</guid>
+<guid>https://simonxiang.xyz/blog/im-never-going-to-finish-reading-infinite-jest</guid>
 <pubDate>Fri, 24 Jul 2020 22:25:32 -0500</pubDate>
 <description><![CDATA[
 <p>
@@ -87,7 +95,7 @@ Of course, I am already dead, along with all my descendants, their descendants, 
 
 <item>
 <title>Linear Algebra and Its Applications, Part 1: An Introduction</title>
-<guid>https://simonxiang.xyz/blog_posts.html#linear-algebra-and-its-applications-part-1-an-introduction</guid>
+<guid>https://simonxiang.xyz/blog/linear-algebra-and-its-applications-part-1-an-introduction</guid>
 <pubDate>Thu, 23 Jul 2020 22:04:17 -0500</pubDate>
 <description><![CDATA[
 <p>
@@ -134,7 +142,7 @@ Matrix equations will show up all the time if you work in a STEM field, and abou
 
 <item>
 <title>How to Contact Me</title>
-<guid>https://simonxiang.xyz/blog_posts.html#how-to-contact-me</guid>
+<guid>https://simonxiang.xyz/blog/how-to-contact-me</guid>
 <pubDate>Mon, 20 Jul 2020 22:14:09 -0500</pubDate>
 <description><![CDATA[
 <h2 style="text-align: center">Email Addresses</h2>
@@ -188,7 +196,7 @@ My email is at the top of the page, and if you know me you most likely have my p
 
 <item>
 <title>Digital Privacy is Like the Blinds on Your Windows</title>
-<guid>https://simonxiang.xyz/blog_posts.html#digital-privacy-is-like-the-blinds-on-your-windows</guid>
+<guid>https://simonxiang.xyz/blog/digital-privacy-is-like-the-blinds-on-your-windows</guid>
 <pubDate>Sun, 19 Jul 2020 14:19:23 -0500</pubDate>
 <description><![CDATA[
 <p>
@@ -228,7 +236,7 @@ Privacy is a fundamental right, not a privilege. With each subsequent invasion o
 
 <item>
 <title>Regrettably, This Site Runs Javascript</title>
-<guid>https://simonxiang.xyz/blog_posts.html#regrettably-this-site-runs-javascript</guid>
+<guid>https://simonxiang.xyz/blog/regrettably-this-site-runs-javascript</guid>
 <pubDate>Sat, 18 Jul 2020 17:21:49 -0500</pubDate>
 <description><![CDATA[
 <p>
@@ -248,7 +256,7 @@ Edit: An additional grievance: <code>\overbrace</code> and <code>\underbrace</co
 
 <item>
 <title>Proving RSA Encryption: An Application of Group Theory (Part 3: Digital Signatures and Euler's Totient Function)</title>
-<guid>https://simonxiang.xyz/blog_posts.html#proving-rsa-encryption-an-application-of-group-theory-part-3-digital-signatures-and-eulers-totient-function</guid>
+<guid>https://simonxiang.xyz/blog/proving-rsa-encryption-an-application-of-group-theory-part-3-digital-signatures-and-eulers-totient-function</guid>
 <pubDate>Fri, 17 Jul 2020 18:51:10 -0500</pubDate>
 <description><![CDATA[
 <p>
@@ -402,6 +410,127 @@ And that's a wrap! If you want to send me encrypted emails, you have my public k
 
 
 
+<item>
+<title>Proving RSA Encryption: An Application of Group Theory (Part 2: Fermat's Little Theorem and Ring Theory)</title>
+<guid>https://simonxiang.xyz/blog/proving-rsa-encryption-an-application-of-group-theory-part-2-fermats-little-theorem-and-ring-theory</guid>
+<pubDate>Fri, 17 Jul 2020 16:19:15 -0500</pubDate>
+<description><![CDATA[
+<p>
+This post is going to be a little heavy on the group theory— I'm going to try to build everything from the ground up but having a prior understanding of the basics of groups will be very useful. Let's start by stating an important theorem:
+</p>
+<p><b><u>Theorem</u></b><em> (Fermat's Little Theorem):</em> Let $a \in \mathbb{Z}$, $p$ a prime. If $p$ doesn't divide $a$, then $p$ divides $a^{p-1} - 1$, that is, 
+\[
+a^{p-1} \equiv 1 \, (\text{mod} \, p).
+\]
+Those with a background in number theory may be more familiar with this equivalent statement of the theorem: If $a \in \mathbb{Z}$, then $a^p \equiv a \, (\text{mod} \, p)$ for $p$ a prime.
+</p>
+<p><b><u>Proof:</u></b><em> I have discovered a truly remarkable proof that is too large to be contained in the margins of this post.</em> 
+</p>
+
+<p>
+Just kidding. Before we prove Fermat's Little Theorem, let's talk about groups and fields. Here's how groups are defined (I'm going to let addition denote an arbitrary binary operation):
+</p>
+<p><b><u>Definition:</u></b> A <b><em>group</em></b> $\langle G,+ \rangle$ is a set $G$ closed under addition such that 
+<li>&emsp; $\mathscr{G}_1$ (Associativity): For all $a, b, c \in G,$ 
+\[
+(a+b)+c = a+(b+c)
+\]
+</li>
+<li>$&emsp; \mathscr{G}_2$ (Identity): There exists an element $0 \in G$ such that for all $a \in G$, 
+\[
+0+a=a+0=a.
+\]
+</li>
+<li>$&emsp; \mathscr{G}_3$ (Inverse): For all $a \in G$, there exists an $a' \in G$ such that 
+\[
+a + a' = a' + a = 0.
+\]
+</li>
+</p>
+
+<p>
+The cool thing about groups is that they're very simple yet powerful: as long as <em><b>any set</b></em> paired with <em><b>any binary operation</b></em> satisfies these axioms, it forms a group, and all the theorems from group theory apply to it. It doesn't just have to be $\mathbb{R}$ with the standard addition, anything from the set of square matrices $(GL(n, \mathbb{C}))$ to the set of permutations on a regular $n$-gon $(S_n)$ form a group.
+</p>
+
+<p>
+Let's prove a theorem that will come in handy later. Since this post is going to be very technical, I'm not going to explain the proof since I'll have to explain everything that builds onto the main theorem used in the proof, Lagrange's Theorem.
+</p>
+
+<p><b><u>Theorem:</u></b> Let $G$ be a finite group under multiplication (so 1 is now the identity), and let $|G|$ denote its cardinality (order). Then for all $a \in G$, 
+\[
+a^{|G|} = 1.
+\]
+</p>
+<p><b><u>Proof:</u></b> By <em>Lagrange's Theorem</em>, the order of the element $a$ (the smallest positive integer $k$ such that $a^k=1$) must divide $|G|$, that is, $|G|=kn$ for some $n \in \mathbb{N}$. Then 
+\[
+a^{|G|}=a^{kn}=(a^k)^n=1^n=1. \quad \boxtimes
+\]
+
+</p>
+
+<p>
+Let's take a look at the specific group $\mathbb{Z}_p$, consisting of the set of integers 
+\[
+\{0,1,2, ... , p-1\}
+\]
+for $p$ a prime, paired with the binary operation of modular arithmetic. For example, $5+6$ (mod 7) $\equiv 11$ (mod 7) $\equiv 4$. I'll leave it to you to check that this forms a group. We can actually go further: we can tack on a second binary operation (modular multiplication) and call it a <em><b>ring</b></em>. 
+</p>
+
+<p>
+Rings have many properties, but the important ones are that multiplication is associative, follows the distributive law ($a*(b+c) = a*b + a*c$), and that the ring has an identity for multiplication (there exists an element $1 \in R$ such that $1*a=a*1=a$ for all $a \in R$). Formally, a ring that has an identity element is called a <em>ring with unity</em>.
+</p>
+
+<p>
+The thing about rings is that <em>not every element has a multiplicative inverse</em> like groups do. For example, take the element $0$. Since $0+0=0$, $a*0=a*(0+0)=a*0+a*0$ for all $a \in R$. If $a*0=a*0+a*0$, just add the additive inverse of $a*0$ to both sides of the equation to yield $0=a*0+0=a*0$. So $a*0 = 0$ for all $a \in R$. Now if $0$ had a multiplicative inverse, that's saying that there exists some element $0' \in R$ such that $0'*0=1$, which is a contradiction since we would have both $0'*0=0$ and $0'*0=1$. Therefore $0$ cannot have a multiplicative inverse.
+</p>
+
+<p>
+Elements of rings that <em>do</em> have multiplicative inverses are called <em><b>units</b></em>. We have another handy theorem that lets us classify the units in $\mathbb{Z}_p$! However, I'm going to skip explaning the machinery behind the proof for the same reasons as the first proof.
+</p>
+<p><b><u>Theorem:</u></b> Let $n$ be the order of the ring $\mathbb{Z}_n$ and $m \in \mathbb{Z}_n$. Then if $\text{gcd}(m,n)=1, m$ is a  <em><b>unit</b></em>.  
+</p>
+<p><b><u>Proof:</u></b> Since $\text{gcd}(m,n)=1$, for some $a, b \in \mathbb{Z}$, we have $an+bm=1$ by <em>Bezout's Identity.</em> By the <em>Division Algorithm</em>, we know there exist integers $q$ and $r$ such that $0 \leq r \leq n-1$ and $b=nq+r$. Then 
+\[
+rm = (b-nq)m = bm-nqm = (1-an)-nqm = 1 - n(a+qm).
+\]
+Since we live in the ring $\mathbb{Z}_n$, multiplication is commutative and multiples of $n$ will reduce to $0$ (mod $n$). Therefore $n(a+qm) \equiv 0 $ (mod $n$), and $rm=mr=1$. Since we have found a multiplicative inverse for $m \in \mathbb{Z}_n$, we conclude that $m$ is a unit. $\quad \boxtimes$
+</p>
+
+<p>
+There are special rings in which <b>every non-zero element is a ring</b> called <em><b>fields</b></em>. Intuively, fields are algebraic structures in which <em>division </em> is legal, since every element is a unit and therefore will remain in the field if "divided by" (multiplied by the multiplicative inverse) of another element in the field. From the previous theorem, the wonderful fact that $\mathbb{Z}_p$ is a field for $p$ a prime follows! Notice that every non-zero element of $\mathbb{Z}_p$ is relatively prime to $p$ (that is, gcd$(m,p)=1$ for $m \in \mathbb{Z}_p$) since $p$ is a prime number, so every non-zero element of $\mathbb{Z}_p$ is a unit, hence $\mathbb{Z}_p$ is a field.
+</p>
+
+<p>
+Algebra is all about analyzing <em>structure</em>. Like a phoenix rising from its ashes, a group emerges from this field. We claim that the <em><b>set of units in $\mathbb{Z}_p$ form a group</b></em> for $p$ a prime. The hardest part about showing that this is a group <b>has already been done!</b> That is, showing that every element has an inverse, which is trivial since every element is a unit.
+</p>
+
+<p>
+<strong>We are ready to prove Fermat's Little Theorem</strong>. Before we do, note that $p$ doesn't necessarily have to be prime for the set of units in $\mathbb{Z}_p$ to from a group. However, since $p$ is prime, we know that every non-zero element is a unit, and therefore we can easily classify this group as consisting of the elements 
+\[
+\{1,2,3, ... ,p-1\}
+\]
+and having order $p-1$. Let's denote our new group as $\mathbb{Z}_p^*$. For convenience, we'll restate Fermat's Little Theorem.
+</p>
+<p><b><u>Theorem</u></b><em> (The Little Theorem of Fermat):</em> Let $a \in \mathbb{Z}$, $p$ a prime. If $p$ doesn't divide $a$, then $p$ divides $a^{p-1} - 1$, that is, 
+\[
+a^{p-1} \equiv 1 \, (\text{mod} \, p).
+\]
+</p>
+<p><b><u>Proof:</u></b> We can restate Fermat's Little Theorem as such: For all $a \in \mathbb{Z}_p^*$, $a^{p-1} \equiv 1$ (mod $p$). Recall a previous theorem: <em>If $G$ is a finite group under multiplication, then $a^{|G|}=1$ for all $a \in G$.</em> Clearly $\mathbb{Z}_p^*$ is a finite group under multiplication, and the order of $\mathbb{Z}_p^*$ is $p-1$, that is, $|\mathbb{Z}_p^*|=p-1$. Therefore, for all $a \in \mathbb{Z}_p^*$,
+\[
+a^{p-1} \equiv a^{|\mathbb{Z}_p^*|} \equiv 1 \, (\text{mod} \, p). \quad \boxtimes
+\]
+</p>
+
+<p>
+(For the curious reader: Here is the reasoning behind why the two statements of FLT are equivalent. Every integer will correspond to a coset of the quotient ring $\mathbb{Z}/p\mathbb{Z}.$ In other words, if $b \in \mathbb{Z}$, then $b \in a+p\mathbb{Z}$ for some $0 \lt a \leq p-1$ $(a \in \mathbb{Z}/p\mathbb{Z}),$ which implies $a+p\mathbb{Z}=b+p\mathbb{Z}$ by the definition of cosets. So we can restate FLT as such: $\forall b+p\mathbb{Z}, (b+p\mathbb{Z})^{p-1} \equiv 1$ (mod $p$) which implies $\forall a+p\mathbb{Z}, (a+p\mathbb{Z})^{p-1} \equiv 1$ (mod $p$). Since $\mathbb{Z}/p\mathbb{Z}$ and $\mathbb{Z}_p$ are naturally isomorphic as rings (similarily, $\mathbb{Z}/p\mathbb{Z}^*$ and $\mathbb{Z}_p^*$ as groups), this statement is the same as $\forall a \in \mathbb{Z}_p, a^{p-1} \equiv 1$ (mod $p$). Therefore, FLT is equivalent to the alternate statement.) 
+</p>
+
+<p>
+Once again, this post has grown quite long. I'll wrap this series up in the next post, look forward to it!
+</p>
+]]></descripton>
+</item>
 
 
 
@@ -410,9 +539,70 @@ And that's a wrap! If you want to send me encrypted emails, you have my public k
 
 
 
+<item>
+<title>Proving RSA Encryption: An Application of Group Theory (Part 1: Asymmetric Encryption)</title>
+<guid>https://simonxiang.xyz/blog/proving-rsa-encryption-an-application-of-group-theory-part-1-asymmetric-encryption</guid>
+<pubDate>Fri, 14 Jul 2020 16:33:15 -0500</pubDate>
+<description><![CDATA[
+<p>
+If someone receives an email from me, they might notice a peculiar "signature.asc" file attached at the bottom. This is not a bug— this is so the recipient can decrypt this file with the <b>RSA encryption algorithm</b> and verify that the sender is in fact, me, and the message has not been tampered with.
+</p>
 
+<p>
+In essence, how the RSA algorithm works is by multiplying two very large prime numbers, known only to the recipient of the message, and making the product public (this is known as a <b><em>public key</em></b>). The sender uses the product to encrypt a message using an algorithm that only someone with knowledge of the two prime numbers (known as the <b><em>private key</em></b>) can decrypt. We can leave the question of the computational difficulty of integer factorization, i.e., whether or not there exists an algorithm that factors large prime numbers in polynomial time, to the computer scientists (hopefully there isn't, or else a large portion of modern day encryption becomes useless). 
+</p>
 
+<p>
+What we're concerned with, as mathematicians, is the <b>validity</b> of the algorithm. We want to know, given <b><em>any</em></b> message, will the recipient <b><em>always</em></b> be able to decrypt the encrypted message with their private key and get the right message? Let's get right into the math— all you'll need to be familiar with is some basic number theory.
+</p>
 
+<p><b><u>Definition:</u></b> Let $n$ be the product of two prime numbers $p$ and $q$ respectively, and $s$ be an integer relatively prime to $(p-1)(q-1)$. Let $p, q,$ and $s$ be part of the <em><b>private key</b></em>, and let $n$ and $r$ be part of the <em><b>public key</b></em>, where $r$ is the <em>multiplicative inverse</em> of $s$ mod $(p-1)(q-1)$. That is, $rs \equiv 1$ mod $(p-1)(q-1)$.  
+</p>
+
+<p>
+The definitions may seem a little strange and arbitrary— no worries! Everything will fall into place over time. For now, our goal is to show that, using the public and private keys, the sender and recipient can <em>successfully complete an <b>encryption/decryption exchange</b></em>. Let's define what that is real quick: in this case, let $m$ be the message being encrypted (Note that $m$ is an integer— there are several ways to encode messages as integers that we will not cover here for the sake of brevity).       
+</p>
+
+<p><b>Encryption:</b> Let $e$ equal the encrypted message, which is determined by 
+\[
+e \equiv m^r \, (\text{mod} \, n).
+\]
+This is simple since $n$ and $r$ are known, and a computer can easily perform modular exponentiation in polynomial time.
+</p>
+
+<p>
+<b>Decryption:</b> After receiving the encrypted message $e$, we decrypt it by computing 
+\[
+e^s \equiv (m^r)^s \equiv m^{rs} \equiv m \, (\text{mod} \, n).
+\]
+We can do this because $s$ is part of the <em><b>private key</b></em>. Note that in this case, we're dealing with a form of <em><b>asymmetric encryption</b></em>, since <b>anyone with the public key</b> can encrypt a message but <b>only the owner of the private key</b> can decrypt it. Everything makes sense up until the last implication. How does $m^{rs} \equiv m \, (\text{mod} \, n)$?
+</p>
+
+<p>
+We need a lemma.
+</p>
+
+<p><b><u>Lemma:</u></b> Let $n = pq$, where $p$ and $q$ are two distinct primes. If $a$ is an integer relatively prime to $n$ and $w$ is an integer such that $w=1$ mod $(p-1)(q-1)$, then 
+\[
+a^w \equiv a \, (\text{mod} \, n).
+\]
+</p>
+<p><b><u>Proof:</u></b> <em>Left as an exercise to the reader.</em> 
+</p>
+
+<p>
+Just kidding. This lemma is built off a powerful theorem, whose proof relies heavily on group theory. Since this post is getting rather long, I'll prove it in the next post, as well as shed some light on the intuition behind choosing the oddly specific number $(p-1)(q-1)$ for $s$ to be relatively prime to. Now that we have this lemma, the equivalence 
+\[
+m^{rs} \equiv m \, (\text{mod} \, n) 
+\]
+follows from the fact that we defined $r$ to be the <em>multiplicative inverse </em> of $s$ (so $rs \equiv 1$ mod $(p-1)(q-1)$), and the lemma above, setting $a$ equal to $m$ and $w$ equal to $rs$. 
+</p>
+
+<p>
+And there we have it! Look out for part two, where I'll talk about digital signatures, group theory, and implementing this in real life.
+</p>
+]]></description>
+</item>
 
 
 
@@ -431,8 +621,56 @@ And that's a wrap! If you want to send me encrypted emails, you have my public k
 
 
 <item>
+<title>Why does my website look so old?</title>
+<guid>https://simonxiang.xyz/blog/why-does-my-website-look-so-old</guid>
+<pubDate>Sun, 12 Jul 2020 15:13:05 -0500</pubDate>
+<description><![CDATA[
+<p>Here are some reasons why.</p>
+
+<h3>The web is bloated</h3>
+
+<p><strong>In a world of overdesigning and excessive emphasis on the graphical user experience, the internet has become massively bloated.</strong> How many times have you loaded up a website for it to look like <a href="pictures/bloated_wire.jpg" target="_blank">this?</a> <a href="http://everyfuckingwebsite.com" target="_blank">Or what about this?</a> (I don't condone swearing by the way).</p>
+
+<p> Either way, "modern" websites have become an abomination. The original premise that websites should be distributed, accessible, and convey information effectively has been abandoned in favor of advertisements, bloat, and rampant censorship. 
+</p>
+
+<h3> Self-sufficiency on the Internet</h3>
+
+<p>When I set out to create this website, I had two goals, the first of which was <strong>self-sufficiency.</strong> I own the VPS this is hosted on and set up the SSL certificate/nginx myself (with the help of some open source software). I write blog posts in HTML and upload them without the help of a static site generator. 
+</p>
+
+<p>Sure, I gain some functionality and save some time if I host my site with GitHub or use Wordpress as a backend for my blog. <em>However, that comes at the cost of full control over <strong>my</strong> website</em>. The miniscule time and cost investment is a small price to pay for <strong>actually owning your own things</strong> (Doesn't that sound ridiculous? Most people don't online).
+</p>
+
+<h3> Less is more </h3>
+
+<p>My second goal was a design goal: KISS, or, <b>K</b>eep <b>I</b>t <b>S</b>imple, <b>S</b>my friend. I'm a minimalist. I don't like owning branded T-shirts or physical papers. I don't even own a mouse! It doesn't make sense for me to over-engineer a simple static text-based website. I only load what I need, and I don't abuse Javascript like Google (see: Google Docs protected mode. How does even exist??).
+</p>
+
+<p>If you're curious, <a href="https://github.com/simonxiang1/website" target="_blank">check out the source code</a>— of course, open source is essential for digital freedom. In terms of design, I took inspiration from <a href="http://motherfuckingwebsite.com target="_blank"">these</a> <a href="http://bettermotherfuckingwebsite.com" target="_blank">three</a> <a href="https://lukesmith.xyz" target="_blank">websites</a> (once again, I don't condone swearing). There's one more reason left as to why my website looks like this...
+
+<h3> The final reason </h3>
+<p>
+I'm lazy and not very good at HTML/CSS.
+</p>
+]]></description>
+</item>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<item>
 <title>Topological Continuity: Simplicity in Abstraction</title>
-<guid>https://simonxiang.xyz/blog_posts.html#topological-continuity-simplicity-in-abstraction</guid>
+<guid>https://simonxiang.xyz/blog/topological-continuity-simplicity-in-abstraction</guid>
 <pubDate>Sat, 11 Jul 2020 14:05:15 -0500</pubDate>
 <description><![CDATA[
 <p>Abstraction is often looked down upon by engineers and physicists as something mathematicians do to make life harder for themselves, obfuscate simple things, and make math less applicable in real life.</p> 
