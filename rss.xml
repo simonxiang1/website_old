@@ -102,7 +102,7 @@ We can show that the map $\frac{d}{dx} : \mathbb{R}[x] \to \mathbb{R}[x]$ is <b>
 \text{1:}\,\,T(v_1+v_2)=T(v_1)+T(v_2)
 \]
 \[
-\text{2:}\,\,(\alpha v) = \alpha T(v)
+\text{2:}\,\,T(\alpha v) = \alpha T(v)
 \]
 for a vector space $V$ over a field $\mathbb{F}, v_i \in V, \alpha \in \mathbb{F}.$ We know that 
 \[
