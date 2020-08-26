@@ -5,7 +5,6 @@ AddDescription "Proving RSA Encryption: An Application of Group Theory (Part 2: 
 AddDescription "Regrettably, This Site Runs Javascript" "regrettably-this-site-runs-javascript.html" #Sat, 18 Jul 2020 17:21:49 -0500
 AddDescription "Digital Privacy is Like the Blinds on Your Windows" "digital-privacy-is-like-the-blinds-on-your-windows.html" #Sun, 19 Jul 2020 14:19:23 -0500
 AddDescription "How to Contact Me" "how-to-contact-me.html" #Mon, 20 Jul 2020 22:14:09 -0500
-AddDescription "Searx is a Completely Private Search Engine" "searx-is-a-completely-private-search-engine.html"
 AddDescription "Options +Indexes
 Proving RSA Encryption: An Application of Group Theory
 I'm Never Going to Finish Reading Infinite Jest
@@ -20,8 +19,9 @@ Searx is a Completely Private Search Engine" "" #Options +IndexesAddDescription 
 AddDescription "Linear Algebra and Its Applications, Part 1: An Introduction" "linear-algebra-and-its-applications-part-1-an-introduction.html" #Thu, 23 Jul 2020 22:04:17 -0500
 AddDescription "Want to Subscribe? Use RSS!" "want-to-subscribe-use-rss.html" #Sat, 25 Jul 2020 23:19:16 -0500
 AddDescription "MPV Is The Best Video Player" "mpv-is-the-best-video-player.html"
-AddDescription "Searx is a Completely Private Search Engine" "searx-is-a-completely-private-search-engine.html"
 AddDescription "Algebra vs. Analysis: How do you eat your corn on the cob?" "algebra-vs-analysis-how-do-you-eat-your-corn-on-the-cob.html" #Mon, 03 Aug 2020 16:27:31 -0500
 AddDescription "Linear Algebra and Its Applications, Part 2: Derivatives" "linear-algebra-and-its-applications-part-2-derivatives.html" #Wed, 05 Aug 2020 21:50:57 -0500
 AddDescription "Math is Hard Because Our Short Term Memory Sucks" "math-is-hard-because-our-short-term-memory-sucks.html" #Fri, 07 Aug 2020 19:20:04 -0500
 AddDescription "Destroying my Computer or: How I Learned to Stop Worrying and Love Linux" "destroying-my-computer-or-how-i-learned-to-stop-worrying-and-love-linux.html" #Tue, 25 Aug 2020 07:50:17 -0500
+AddDescription "Searx is a Completely Private Search Engine
+AddDescription "Searx is a Completely Private Search Engine" "searx-is-a-completely-private-search-engine.html" #Tue, 25 Aug 2020 20:57:48 -0500
