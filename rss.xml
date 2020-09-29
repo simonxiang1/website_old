@@ -11,6 +11,48 @@
 <!-- LB -->
 
 <item>
+<title>MPV Is The Best Video Player</title>
+<guid>https://simonxiang.xyz/blog/mpv-is-the-best-video-player</guid>
+<pubDate>Tue, 29 Sep 2020 08:41:00 -0500</pubDate>
+<description><![CDATA[
+<p>
+If you haven't heard of <a href="https://mpv.io">mpv</a> yet, now's the time to start hearing about it. Forget VLC, Windows Media Player, QuickTime Player, whatever. mpv is undisputably the best media player, and here's why.
+</p>
+
+<h3>Not Bloated</h3>
+
+<p>
+Both visually and internally. The GUI for VLC only gets in the way, so the folks developing mpv did away with the GUI entirely (almost). It hides itself when not in use to maximize precious screen real estate, so all you see is the video when you load up mpv. This is much cleaner than staring at a play button or some GUI that looks like it was made in 2007.
+</p>
+
+<h3>User Centric</h3>
+<p>
+Keyboard based controls, fully customizable. Need I say more?
+</p>
+
+<h3>Works out of the box</h3>
+<p>
+It just werks™. Always starts up instantly, not even a millisecond of delay (in other words, not written in Python). It plays almost any type of file with no errors. There's no need to endlessly configure to get it to work.
+</p>
+
+<h3>Youtube-dl integration: Watch YouTube videos without YouTube!</h3>
+
+<p>
+To me, this is the most mind-blowing feature. If you have <code>youtube-dl</code> installed, mpv can stream videos without opening a browser. All you have to do is prove mpv with the YouTube link (eg <code>mpv youtube.com/s?5jbskjk???</code> &lt;- this is a random url) and mpv will stream it. This eliminates the need to visit YouTube altogether, coupled with an RSS reader. Just watch the videos locally! 
+</p>
+<p>
+You could also run <code>mpv youtube.com/298jfs??? --no-video</code> to replace YouTube as a music streaming service (I still recommend downloading videos with <code>youtube-dl</code> and playing them with <a href="https://www.musicpd.org/">mpd</a>+<a href="https://wiki.archlinux.org/index.php/Ncmpcpp">ncmpcpp</a>).
+</p>
+
+<h3>Expanding on the "customizable" bit</h3>
+<p>
+You can remap anything to any key in your <code>~/.config/mpv/input.conf</code> file, and make general changes in <code>~/.config/mpv/mpv.conf</code>. For example, I set mpv to loop gif files and mapped "j" and "k" to seek backwards and forwards, respectively. I also have Newsboat open YouTube videos in my RSS feed with <code>,v</code>. You can find my mpv config files <a href="https://github.com/simonxiang1/dotfiles/tree/master/.config/mpv">here</a>, as well as my <a href="https://github.com/simonxiang1/dotfiles/tree/master/.config/newsboat">newsboat config</a> for streaming YouTube videos locally).
+</p>
+]]></description>
+</item>
+
+
+<item>
 <title>Running Log: In Each Shave Lies a Philosophy</title>
 <guid>https://simonxiang.xyz/blog/running-log-in-each-shave-lies-a-philosophy</guid>
 <pubDate>Tue, 15 Sep 2020 16:06:39 -0500</pubDate>
