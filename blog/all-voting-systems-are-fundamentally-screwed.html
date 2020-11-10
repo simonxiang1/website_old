@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>All Voting Systems are Fundamentally Screwed</title>
+<link rel='stylesheet' type='text/css' href='../style.css'>
+<script src="../load-mathjax.js" async></script>
+<meta charset='utf-8'/>
+</head>
+<body>
+<h1>All Voting Systems are Fundamentally Screwed</h1>
+<small>[<a href='../blog_posts.html#all-voting-systems-are-fundamentally-screwed'>link</a>&mdash;<a href='all-voting-systems-are-fundamentally-screwed.html'>standalone</a>]</small>
+<style>
+td {
+  border: 1px solid var(--color1);
+  border-collapse: collapse;
+  text-align: center;
+}
+</style>
+
+<p>
+In light of the recent election, there's a lot of talk going on about alternate voting systems like ranked choice, with claims like "Libertarians are stealing <em>our</em> votes!" and "with ranked choice, ____ would have won!" Here's a mathematical approach to why <b>any</b> proposed alternative wouldn't work. This post is based off notes from the first UT math club lecture given by Tom Gannon, you can find them <a href="https://github.com/simonxiang1/math_notes/blob/master/freshman_year/math_club/master_notes.pdf">here</a>. Sorry for the clickbait title. Without further ado, let's begin.
+</p>
+
+<p>
+How would we precisely define what a voting system is? Informally, we would probably need a list of <em>alternatives</em> to choose from, for each person to make an ordered list of such alternatives, and have a <em>societal preference list</em> as the output. We would also prefer there to be more than two alternatives, since the two party system has been the cause of much complaint. Mathematically, we would define two sets $A=\{\text{set of outcomes}\}$ and $N=\{\text{set of voters}\}$. Then a <b>voting system</b> would be defined as a function \[
+F \colon L(A)^N \to L(A),
+\] where $L(A)$ denotes the set of all total orderings of $A$. Each person's individual ballot would be an $N$-tuple $(R_1,\cdots,R_N)\in L(A)^N$ (also called a <em>preference profile</em>). Let's give some examples of voting systems:
+<ul>
+    <li><b>First Past the Post:</b> This is the system we use today. Everyone will submit a ballot with their top choice, and whoever gets picked as top choice the most will win.</li>
+    <li><b>Borda count:</b> This, along with instant-runoff, is a version of "ranked choice" voting that people ask for. Rate your candidates from 1-10 (not literally), then everyone's ratings get summed up: whichever candidate with the most points wins.</li>
+    <li><b>Last Past the Post:</b> This isn't real, but serves to push the definition of a voting system: it's like FPTP (First Past the Post), but whoever gets picked as top choice the <em>least</em> wins. By definition, this is still a voting system.</li>
+    <li><b>Dictatorship:</b> Our favorite system. There exists a dictator among the voters, and the societal preference list is literally just the dictator's ballot.</li>
+</ul>
+</p>
+
+<p>
+We would probably want our voting system to satisfy some reasonable conditions. For example, if everyone puts in the exact same ballot, then the output should be that ballot that everyone put in right? Also, if everyone ranks candidate $A$ above candidate $B$, then in the final ranking, $A$ should be greater than $B$. These conditions are called the <b>Pareto condition</b> and <b>independence of irrelevant alternatives</b>, respectively. We could also interpret indepedence of irrelevant alternatives as such: if we add a third candidate, it won't change the position of the other two candidates. Let's define these conditions mathematically:
+</p>
+<p><b><u>Definition:</u></b> A voting system satisfies the <em><b>Pareto condition</b></em> (unanimity) if given that an alternative $a$ is strictly greater than $b$ for all total orderings $R_1,\cdots,R_N$, then $a$ is strictly greater than $b $ in $F(R_1,\cdots, R_N)$.
+</p>
+<p><b><u>Definition:</u></b> A voting system is said to be <em><b>independent of irrelevant alternatives</b></em> (denoted IIA) if for two preference profiles $(R_1,\cdots,R_N)$ and $(S_1,\cdots,S_N)$ such that for all individuals $i$, alternatives $a$ and $b$ have the same order in  $R_i$ as in $S_i$, then alternatives $a$ and $b$ have the same order in  $F(R_1,\cdots,R_N)$ as in $F(S_1,\cdots,S_N)$.
+</p>
+<p>
+These conditions seem pretty reasonable right? Let's take a look at what each of our voting systems satisfies.
+</p>
+
+<table style="width:100%; border-collapse: collapse">
+<tr>
+    <th style="border: 1px solid var(--color1);"></th>
+    <th style="border: 1px solid var(--color1);">FPTP</th>
+    <th style="border: 1px solid var(--color1);">Borda</th>
+    <th style="border: 1px solid var(--color1);">LPTP</th>
+    <th style="border: 1px solid var(--color1);">Dictatorship</th>
+</tr>
+<tr>
+    <th style="border: 1px solid var(--color1);">Pareto?</th>
+    <td><b>Yes</b>, if everyone chooses the same person he will have the most votes and win</td>
+    <td><b>Yes</b>, for the same reason as FPTP</td>
+    <td><b>No</b>, everyone putting the same guy first will result in him losing</td>
+    <td><b>YES!</b></td>
+</tr>
+<tr>
+    <th style="border: 1px solid var(--color1);">IIA?</th>
+    <td><b>No</b>, introducing a third party may change the results</td>
+    <td><b>No</b>, same reason as FPTP but more severe since the new candidate will be weighted</td>
+    <td><b>No</b>, introducing an irrelevant alternative will probably result in him winning </td>
+    <td><b>YES!</b></td>
+</tr>
+</table>
+<p>
+Do you see a pattern? The only voting system that satisfies both Pareto and IIA is a dictatorship! The natural question to ask then, is "are there any other systems that satisfy both Pareto and IIA"? The answer to that is <b>NO!</b> The <em>only</em> system that satisfies both Pareto and IIA is a dictatorship. This is called <em><b>Arrow's Impossibility Theorem</b></em>, proving this shows that there <em>doesn't exist</em> a system that satisfies Pareto, is IIA, and isn't a dictatorship.
+</p>
+<p><b><u>Theorem</b> <em>(Arrow's Impossibility Theorem)</em><b>:</u></b> Assume that $V$ is a voting system with more than two alternatives which satisfies both Pareto and is independent of irrelevant alternatives. Then $V$ is a dictatorship.
+</p>
+<p><b><u>Corollary:</u></b> There exists no voting system that
+<ul>
+    <li>has more than two alternatives,</li>
+    <li>satisfies the Pareto condition,</li>
+    <li>is independent of irrelevant alternatives,</li>
+    <li>and is NOT a dictatorship.</li>
+</ul>
+</p>
+
+<p>
+I won't get into the proof: you can find it starting from page $4$ <a href="https://github.com/simonxiang1/math_notes/blob/master/freshman_year/math_club/master_notes.pdf">here</a>. But proving this theorem says that any voting system you could possibly come up with will fail at least one of the conditions: so in other words, if we want reasonable voting criterion with more than two candidates, no can do! This may be out of character, but here are some practical reasons why other voting systems haven't been implemented:
+</p>
+
+   <b>Instant Runoff</b>  
+<ul>
+    <li>takes too much time (and therefore money), since one voting cycle is required for each candidate</li>
+    <li>requires too much mental energy from each voter, forcing them to make several conscious choices rather than one</li>
+</ul>
+   <b>Borda count</b>  
+<ul>
+    <li>once again requires too much mental energy from each voter, forcing them to rank each candidate</li>
+    <li>tends to elect people who are somewhat decent according to most people, rather than the best candidate that the majority want</li>
+</ul>
+<b>Dictatorship</b> 
+<ul>
+    <li>objectively the best system, since citizens of a dictatorship fairly chose their supreme leader, unlike flawed systems like FPTP</li>
+    <li>voting system of choice in wonderful progressive democracies like North Korea, Libya, and Iraq</li>
+    <li>this message was approved by Ali Khamenei (Supreme leader of Iran), Kim Jong-un (Supreme leader of North Korea), Mswati III (King of Swaziland), and Chairman Mao</li>
+</ul>
+<footer>by <strong><a href='https://simonxiang.xyz/'>Simon Xiang</a></strong></footer>
+</body>
+
+</html>
