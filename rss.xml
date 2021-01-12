@@ -11,6 +11,27 @@
 <!-- LB -->
 
 <item>
+<title>MathML, Javascript, and the Future of This Blog</title>
+<guid>https://simonxiang.xyz/blog/mathml-javascript-and-the-future-of-this-blog</guid>
+<pubDate>Sat, 09 Jan 2021 21:22:29 -0600</pubDate>
+<description><![CDATA[
+<p>
+It's the new year, which means I've shifted all my previous posts from 2020 to an alternate file, to make loading the <a href="https://simonxiang.xyz/blog_posts">rolling view blog page</a> faster. The year is just a number anyway.
+</p>
+<p>
+When I first started making this website, I had a vision of having cool and accessible math posts about a wide variety of subjects, with a sprinkle of miscellaneous topics peppered in. The blog has evolved in the opposite direction, becoming a collection of random musings with the occasional informative post. Writing math posts is hard, especially in text format to an unknown audience. What makes math explanations cool in video form or in person are the little details you add in, tidbits that shed light on foreign concepts, illuminating them and making their ideas transparent to the world. These kind of things are incredible difficult to express in text form, nobody wants to read walls of text (looking at you Allen Hatcher). I think the biggest limiting factor is the author's own ego: when writing math, the product almost becomes a representation of their mathematical prowess of sorts. So like proofs or papers, the mathematician wishes to make their prose as concise and beautiful as possible, to avoid being represented by "bad" work. Hence posts are detailed and concise, and don't elaborate too much on things that really should be elaborated on. At this point, I might as well write a textbook.
+</p>
+<p>
+There's also the technical aspect of these posts. Currently math posts use MathJax, which is <em>incredibly</em> bloated and slow (load <a href="https://simonxiang.xyz/blog_posts_2020">this page</a> for an example). There seems to be no other way to embed math online that isn't a janky workaround, like embedding images into your text (this breaks if you want to change your text color). I've been digging around online, and I thought I found my "perfect solution", which is MathML. It's fast, clean, functions like text, and is natively supported by reasonable browsers. Unfortunately, the list of reasonable browsers does not include Google Chrome, which is what most people use. So Google's evil antics in eliminating a reasonable web standard for science have screwed us yet again. Also, I would still need Javascript to convert LaTeX to MathML, since MathML code is incredibly long and tedious. This rules out my vision for a perfect bloat free website, that works perfectly with Javascript disabled.
+</p>
+<p>
+You can see why I decided to give up on writing math posts. If I come across something particularly interesting I might still write math posts, but they'll be on hiatus for now. Now I can focus full time on boomer posts about social media, minimalism, running/whatever, and anything else that comes to mind really. Until next time.
+</p>
+]]></description>
+</item>
+
+
+<item>
 <title>John Nash's PhD Thesis</title>
 <guid>https://simonxiang.xyz/blog/john-nashs-phd-thesis</guid>
 <pubDate>Thu, 31 Dec 2020 22:48:19 -0600</pubDate>
