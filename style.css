@@ -1,13 +1,38 @@
-@import url('houseki_theme.css');
+@import url('themes/colors_fire.css');
+@font-face {
+    font-family: 'mononoki';
+    src: url('fonts/mononoki-Regular.ttf')  format('truetype'); /* Safari, Android, iOS */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'mononoki';
+    src: url('fonts/mononoki-Bold.ttf')  format('truetype'); /* Safari, Android, iOS */
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'mononoki';
+    src: url('fonts/mononoki-Italic.ttf')  format('truetype');
+    font-weight: normal;
+    font-style: italic;
+
+}
+
+@font-face {
+    font-family: 'mononoki';
+    src: url('fonts/mononoki-BoldItalic.ttf')  format('truetype'); 
+    font-weight: bold;
+    font-style: italic;
+}
 
 body{
     margin:40px auto;
     max-width:700px;
-    line-height:1.4;
-    font-size:17px;
-    color: var(--color1);
-    background-color: var(--background);
-    padding: 0 10px
+    padding: 0 10px;
+    font-family: 'mononoki', monospace;
 }
 
 body img{
@@ -17,13 +42,27 @@ body img{
     padding: 10px
 }
 
-h1{line-height:1.1; text-align: center; color: var(--color7)}
-h2,h3{line-height:1.1; color: var(--color2)}
+h1{line-height:1.1; text-align: center; color: var(--color6)}
+h2,h3,h4{line-height:1.1; color: var(--color5)}
 footer{font-size: 13px}
 a{color: var(--color3)}
 a:visited{color: var(--color3)}
 a:hover{color: var(--color7)}
-pre{padding: 0 20px; overflow: auto; -ms-overflow-style: none; scrollbar-width: none;}
+pre{
+	border: 1px solid lime ;
+	border-radius: 20px ;
+        color: solid lime;
+	padding: 1em ;
+	margin: 1em ;
+	white-space: pre-wrap;
+        overflow: auto;
+        scrollbar-width: none;
+}
+code {
+	color: #00B31E;
+	border-radius: 5px ;
+	overflow-wrap: break-word ;
+}
 
 blockquote{
     font-size: 20px;
@@ -56,7 +95,7 @@ blockquote{
 .even img  {
     padding-top: 1cm;
     float: right;
-    max-width: 400px;
+    max-width: 320px;
     max-height: 225px;
     padding: 20px
 }
